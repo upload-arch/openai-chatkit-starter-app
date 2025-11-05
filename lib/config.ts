@@ -18,6 +18,18 @@ export const PLACEHOLDER_INPUT = "Ask anything...";
 export const GREETING = "How can I help you today?";
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
+
+   theme: {
+    colorScheme: 'dark',
+    radius: 'pill',
+    density: 'normal',
+    color: {
+      grayscale: {
+        hue: 312,
+        tint: 6
+      }
+    },
+     
   color: {
     grayscale: {
       hue: 220,
@@ -30,6 +42,8 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
     },
   },
   radius: "round",
+
+  
   // Add other theme options here
   // chatkit.studio/playground to explore config options
 });
