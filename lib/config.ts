@@ -37,9 +37,7 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
 import type { ChatKitOptions } from "@openai/chatkit";
 
 const options: ChatKitOptions = {
-  api: {
-    // TODO: configure your ChatKit API integration (URL, auth, uploads).
-  },
+  
   theme: {
     colorScheme: 'light',
     radius: 'pill',
