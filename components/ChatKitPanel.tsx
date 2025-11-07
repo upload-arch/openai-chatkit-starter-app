@@ -270,38 +270,38 @@ export function ChatKitPanel({
     },
     // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
     theme: {
-      colorScheme: 'dark', // <<< KARANLIK TEMA AYARI
-      radius: 'pill',
-      density: 'normal',
-      typography: {
-        baseSize: 16
-      }
-    },
-    composer: {
-      placeholder: PLACEHOLDER_INPUT, 
-      attachments: {
-        enabled: true,
-        maxCount: 5,
-        maxSize: 10485760
-      },
-      tools: [
-        {
-          id: 'search_docs',
-          label: 'Search docs',
-          shortLabel: 'Docs',
-          placeholderOverride: 'Search documentation',
-          icon: 'book-open',
-          pinned: false
-        }
-      ],
-    },
-    startScreen: {
-      greeting: 'Merhaba Egemen', // <<< YENİ KARŞILAMA MESAJI
-      prompts: [
-        {
-          icon: 'circle-question',
-          label: 'What is ChatKit?',
-          prompt: 'What is ChatKit?'
+    colorScheme: 'light',
+    radius: 'pill',
+    density: 'normal',
+    typography: {
+      baseSize: 16
+    }
+  },
+  composer: {
+    attachments: {
+      enabled: true,
+      maxCount: 5,
+      maxSize: 10485760
+    },
+    tools: [
+      {
+        id: 'search_docs',
+        label: 'Search docs',
+        shortLabel: 'Docs',
+        placeholderOverride: 'Search documentation',
+        icon: 'book-open',
+        pinned: false
+      }
+      // ...and 1 more tool
+    ],
+  },
+  startScreen: {
+    greeting: 'Merhaba Egemen',
+    prompts: [
+      {
+        icon: 'circle-question',
+        label: 'What is ChatKit?',
+        prompt: 'What is ChatKit?'
         }
       ],
     },
