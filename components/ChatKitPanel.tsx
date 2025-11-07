@@ -261,54 +261,54 @@ export function ChatKitPanel({
     [isWorkflowConfigured, setErrorState]
   );
 
-  // SİLİNEN KISMIN YERİNE BU KODU YAPIŞTIRIN:
-// ESKİ AYARLARIN YERİNE BU KODU YAPIŞTIRIN:
+// 233. SATIRDA BAŞLAYAN ESKİ KOD BLOĞUNU SİLİN VE YERİNE BU KODU YAPIŞTIRIN:
 
-  import type { ChatKitOptions } from "@openai/chatkit";
-
-const options: ChatKitOptions = {
-  api: {
-    // TODO: configure your ChatKit API integration (URL, auth, uploads).
-  },
-  theme: {
-    colorScheme: 'dark',
-    radius: 'pill',
-    density: 'normal',
-    typography: {
-      baseSize: 16
-    }
-  },
-  composer: {
-    attachments: {
-      enabled: true,
-      maxCount: 5,
-      maxSize: 10485760
+  const chatkit = useChatKit({
+    // KRİTİK API AYARI KORUNUYOR
+    api: { 
+        getClientSecret 
     },
-    tools: [
-      {
-        id: 'search_docs',
-        label: 'Search docs',
-        shortLabel: 'Docs',
-        placeholderOverride: 'Search documentation',
-        icon: 'book-open',
-        pinned: false
-      }
-      // ...and 1 more tool
-    ],
-  },
-  startScreen: {
-    greeting: 'Merhaba Egemen',
-    prompts: [
-      {
-        icon: 'circle-question',
-        label: 'What is ChatKit?',
-        prompt: 'What is ChatKit?'
-      }
-      // ...and 4 more prompts
-    ],
-  },
-  // Optional fields not shown: locale, initialThread, threadItemActions, header, onClientTool, entities, widgets
-};
+    // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
+    theme: {
+      colorScheme: 'dark', // <<< KARANLIK TEMA AYARI
+      radius: 'pill',
+      density: 'normal',
+      typography: {
+        baseSize: 16
+      }
+    },
+    composer: {
+      placeholder: PLACEHOLDER_INPUT, 
+      attachments: {
+        enabled: true,
+        maxCount: 5,
+        maxSize: 10485760
+      },
+      tools: [
+        {
+          id: 'search_docs',
+          label: 'Search docs',
+          shortLabel: 'Docs',
+          placeholderOverride: 'Search documentation',
+          icon: 'book-open',
+          pinned: false
+        }
+      ],
+    },
+    startScreen: {
+      greeting: 'Merhaba Egemen', // <<< YENİ KARŞILAMA MESAJI
+      prompts: [
+        {
+          icon: 'circle-question',
+          label: 'What is ChatKit?',
+          prompt: 'What is ChatKit?'
+        }
+      ],
+    },
+    threadItemActions: {
+      feedback: false,
+    },
+// Bu noktadan sonra onClientTool ve diğer fonksiyonlar devam etmelidir.
 // Bu noktadan sonra dosyanızdaki onClientTool, onResponseEnd gibi fonksiyonlar devam etmelidir.
     onClientTool: async (invocation: {
       name: string;
