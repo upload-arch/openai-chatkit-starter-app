@@ -324,7 +324,7 @@ export function ChatKitPanel({
         icon: 'circle-question',
         label: 'Metinatör Nedir?',
         prompt: 'Metinatör Nedir?'
-      }
+      },
       {
         icon: 'circle-question',
         label: 'Ne yapmalıyım?',
