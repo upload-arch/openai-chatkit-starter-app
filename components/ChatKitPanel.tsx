@@ -271,13 +271,28 @@ export function ChatKitPanel({
     // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
     theme: {
     colorScheme: 'light',
-    radius: 'pill',
-    density: 'normal',
+    radius: 'soft',
+    density: 'compact',
+    color: {
+      grayscale: {
+        hue: 252,
+        tint: 0
+      },
+      accent: {
+        primary: '#181818',
+        level: 1
+      },
+      surface: {
+        background: '#ffffff',
+        foreground: '#ffffff'
+      }
+    },
     typography: {
       baseSize: 16
     }
   },
   composer: {
+    placeholder: 'Egemen\'i seviyorum',
     attachments: {
       enabled: true,
       maxCount: 5,
@@ -294,9 +309,18 @@ export function ChatKitPanel({
       }
       // ...and 1 more tool
     ],
+    models: [
+      {
+        id: 'gpt-5',
+        label: 'gpt-5',
+        description: 'Balanced intelligence',
+        'default': true
+      }
+      // ...and 3 more models
+    ],
   },
   startScreen: {
-    greeting: 'Merhaba Egemen',
+    greeting: 'Selamın Aleykum',
     prompts: [
       {
         icon: 'circle-question',
