@@ -262,29 +262,30 @@ export function ChatKitPanel({
   );
 
   // SİLİNEN KISMIN YERİNE BU KODU YAPIŞTIRIN:
+// ESKİ AYARLARIN YERİNE BU KODU YAPIŞTIRIN:
 
-  // YENİ KOD (SADECE AYAR OBJESİ DEĞİŞTİRİLİYOR)
   const chatkit = useChatKit({
     // KRİTİK API AYARI KORUNUYOR
     api: { 
         getClientSecret 
     },
-    // PLAYGROUND'DAN GELEN YENİ ÖZELLEŞTİRMELER
+    // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
     theme: {
-      colorScheme: 'light',
+      colorScheme: 'dark', // <<< TEMA KARANLIK OLDU
       radius: 'pill',
       density: 'normal',
       typography: {
         baseSize: 16,
-        fontFamily: '"OpenAI Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
-        fontFamilyMono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
+        fontFamily: '\'JetBrains Mono\', monospace', // <<< YENİ YAZI TİPİ
+        fontFamilyMono: '\'JetBrains Mono\', monospace',
         fontSources: [
           {
-            family: 'OpenAI Sans',
-            src: 'https://cdn.openai.com/common/fonts/openai-sans/v2/OpenAISans-Regular.woff2',
-            weight: 400,
+            family: 'JetBrains Mono',
             style: 'normal',
-            display: 'swap'
+            weight: 300,
+            display: 'swap',
+            src: 'https://fonts.gstatic.com/s/jetbrainsmono/v23/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2',
+            unicodeRange: 'U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF'
           }
         ]
       }
@@ -308,7 +309,7 @@ export function ChatKitPanel({
       ],
     },
     startScreen: {
-      greeting: 'Merhaba Test', // Yeni mesajınız
+      greeting: 'Merhaba Test',
       prompts: [
         {
           icon: 'circle-question',
@@ -320,6 +321,8 @@ export function ChatKitPanel({
     threadItemActions: {
       feedback: false,
     },
+// Buradan sonra onClientTool, onResponseEnd, vb. fonksiyonlar devam etmelidir.
+  
 // Bu noktadan sonra dosyanızdaki onClientTool, onResponseEnd gibi fonksiyonlar devam etmelidir.
     onClientTool: async (invocation: {
       name: string;
