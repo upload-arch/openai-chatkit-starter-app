@@ -261,26 +261,64 @@ export function ChatKitPanel({
     [isWorkflowConfigured, setErrorState]
   );
 
-  const chatkit = useChatKit({
-    api: { getClientSecret },
-    theme: {
-      colorScheme: theme,
-      ...getThemeConfig(theme),
+  // SİLİNEN KISMIN YERİNE BU KODU YAPIŞTIRIN:
+
+  const chatkit = useChatKit({
+    api: { 
+        getClientSecret 
     },
-    startScreen: {
-      greeting: GREETING,
-      prompts: STARTER_PROMPTS,
-    },
-    composer: {
-      placeholder: PLACEHOLDER_INPUT,
-      attachments: {
-        // Enable attachments
-        enabled: true,
-      },
-    },
-    threadItemActions: {
-      feedback: false,
-    },
+    // PLAYGROUND'DAN GELEN YENİ AYARLAR BURADAN BAŞLAR
+    theme: {
+      colorScheme: 'light',
+      radius: 'pill',
+      density: 'normal',
+      typography: {
+        baseSize: 16,
+        fontFamily: '"OpenAI Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
+        fontFamilyMono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
+        fontSources: [
+          {
+            family: 'OpenAI Sans',
+            src: 'https://cdn.openai.com/common/fonts/openai-sans/v2/OpenAISans-Regular.woff2',
+            weight: 400,
+            style: 'normal',
+            display: 'swap'
+          }
+        ]
+      }
+    },
+    composer: {
+      placeholder: PLACEHOLDER_INPUT, 
+      attachments: {
+        enabled: true,
+        maxCount: 5,
+        maxSize: 10485760
+      },
+      tools: [
+        {
+          id: 'search_docs',
+          label: 'Search docs',
+          shortLabel: 'Docs',
+          placeholderOverride: 'Search documentation',
+          icon: 'book-open',
+          pinned: false
+        }
+      ],
+    },
+    startScreen: {
+      greeting: '', 
+      prompts: [
+        {
+          icon: 'circle-question',
+          label: 'ChatKit nedir?',
+          prompt: 'What is ChatKit?'
+        }
+      ],
+    },
+    threadItemActions: {
+      feedback: false,
+    },
+// BURADA DURUN. Kodun geri kalanı (onClientTool, onResponseEnd, vb.) otomatik olarak kaldığı yerden devam edecektir.
     onClientTool: async (invocation: {
       name: string;
       params: Record<string, unknown>;
