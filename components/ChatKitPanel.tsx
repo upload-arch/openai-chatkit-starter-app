@@ -264,65 +264,51 @@ export function ChatKitPanel({
   // SİLİNEN KISMIN YERİNE BU KODU YAPIŞTIRIN:
 // ESKİ AYARLARIN YERİNE BU KODU YAPIŞTIRIN:
 
-  const chatkit = useChatKit({
-    // KRİTİK API AYARI KORUNUYOR
-    api: { 
-        getClientSecret 
+  import type { ChatKitOptions } from "@openai/chatkit";
+
+const options: ChatKitOptions = {
+  api: {
+    // TODO: configure your ChatKit API integration (URL, auth, uploads).
+  },
+  theme: {
+    colorScheme: 'dark',
+    radius: 'pill',
+    density: 'normal',
+    typography: {
+      baseSize: 16
+    }
+  },
+  composer: {
+    attachments: {
+      enabled: true,
+      maxCount: 5,
+      maxSize: 10485760
     },
-    // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
-    theme: {
-      colorScheme: 'dark', // <<< TEMA KARANLIK OLDU
-      radius: 'pill',
-      density: 'normal',
-      typography: {
-        baseSize: 16,
-        fontFamily: '\'JetBrains Mono\', monospace', // <<< YENİ YAZI TİPİ
-        fontFamilyMono: '\'JetBrains Mono\', monospace',
-        fontSources: [
-          {
-            family: 'JetBrains Mono',
-            style: 'normal',
-            weight: 300,
-            display: 'swap',
-            src: 'https://fonts.gstatic.com/s/jetbrainsmono/v23/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2',
-            unicodeRange: 'U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF'
-          }
-        ]
-      }
-    },
-    composer: {
-      placeholder: PLACEHOLDER_INPUT, 
-      attachments: {
-        enabled: true,
-        maxCount: 5,
-        maxSize: 10485760
-      },
-      tools: [
-        {
-          id: 'search_docs',
-          label: 'Search docs',
-          shortLabel: 'Docs',
-          placeholderOverride: 'Search documentation',
-          icon: 'book-open',
-          pinned: false
-        }
-      ],
-    },
-    startScreen: {
-      greeting: 'Merhaba Test',
-      prompts: [
-        {
-          icon: 'circle-question',
-          label: 'What is ChatKit?',
-          prompt: 'What is ChatKit?'
-        }
-      ],
-    },
-    threadItemActions: {
-      feedback: false,
-    },
-// Buradan sonra onClientTool, onResponseEnd, vb. fonksiyonlar devam etmelidir.
-  
+    tools: [
+      {
+        id: 'search_docs',
+        label: 'Search docs',
+        shortLabel: 'Docs',
+        placeholderOverride: 'Search documentation',
+        icon: 'book-open',
+        pinned: false
+      }
+      // ...and 1 more tool
+    ],
+  },
+  startScreen: {
+    greeting: 'Merhaba Egemen',
+    prompts: [
+      {
+        icon: 'circle-question',
+        label: 'What is ChatKit?',
+        prompt: 'What is ChatKit?'
+      }
+      // ...and 4 more prompts
+    ],
+  },
+  // Optional fields not shown: locale, initialThread, threadItemActions, header, onClientTool, entities, widgets
+};
 // Bu noktadan sonra dosyanızdaki onClientTool, onResponseEnd gibi fonksiyonlar devam etmelidir.
     onClientTool: async (invocation: {
       name: string;
