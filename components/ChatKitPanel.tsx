@@ -269,34 +269,41 @@ export function ChatKitPanel({
         getClientSecret 
     },
     // YENİ ÖZELLEŞTİRMELER BURADA BAŞLAR
-    theme: {
-    colorScheme: 'light',
-    radius: 'soft',
+   theme: {
+    colorScheme: 'dark',
+    radius: 'round',
     density: 'compact',
     color: {
       grayscale: {
-        hue: 252,
-        tint: 0
+        hue: 229,
+        tint: 9,
+        shade: 2
       },
       accent: {
-        primary: '#181818',
+        primary: '#e32400',
         level: 1
-      },
-      surface: {
-        background: '#ffffff',
-        foreground: '#ffffff'
       }
     },
     typography: {
-      baseSize: 16
+      baseSize: 17,
+      fontFamily: '"OpenAI Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
+      fontFamilyMono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
+      fontSources: [
+        {
+          family: 'OpenAI Sans',
+          src: 'https://cdn.openai.com/common/fonts/openai-sans/v2/OpenAISans-Regular.woff2',
+          weight: 400,
+          style: 'normal',
+          display: 'swap'
+        }
+      // ...and 7 more font sources
+      ]
     }
   },
   composer: {
-    placeholder: 'Egemen\'i seviyorum',
+    placeholder: 'buraya yazarlar.',
     attachments: {
-      enabled: true,
-      maxCount: 5,
-      maxSize: 10485760
+      enabled: false
     },
     tools: [
       {
@@ -309,24 +316,20 @@ export function ChatKitPanel({
       }
       // ...and 1 more tool
     ],
-    models: [
-      {
-        id: 'gpt-5',
-        label: 'gpt-5',
-        description: 'Balanced intelligence',
-        'default': true
-      }
-      // ...and 3 more models
-    ],
   },
   startScreen: {
-    greeting: 'Selamın Aleykum',
+    greeting: 'Merhaba ben Metinatör.',
     prompts: [
       {
         icon: 'circle-question',
-        label: 'What is ChatKit?',
-        prompt: 'What is ChatKit?'
-        }
+        label: 'Metinatör Nedir?',
+        prompt: 'Metinatör Nedir?'
+      }
+      {
+        icon: 'circle-question',
+        label: 'Ne yapmalıyım?',
+        prompt: 'Ne yapmalıyım?'
+      }
       ],
     },
     threadItemActions: {
