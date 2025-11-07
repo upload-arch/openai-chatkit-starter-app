@@ -263,11 +263,13 @@ export function ChatKitPanel({
 
   // SİLİNEN KISMIN YERİNE BU KODU YAPIŞTIRIN:
 
+  // YENİ KOD (SADECE AYAR OBJESİ DEĞİŞTİRİLİYOR)
   const chatkit = useChatKit({
+    // KRİTİK API AYARI KORUNUYOR
     api: { 
         getClientSecret 
     },
-    // PLAYGROUND'DAN GELEN YENİ AYARLAR BURADAN BAŞLAR
+    // PLAYGROUND'DAN GELEN YENİ ÖZELLEŞTİRMELER
     theme: {
       colorScheme: 'light',
       radius: 'pill',
@@ -306,11 +308,11 @@ export function ChatKitPanel({
       ],
     },
     startScreen: {
-      greeting: '', 
+      greeting: 'Merhaba Test', // Yeni mesajınız
       prompts: [
         {
           icon: 'circle-question',
-          label: 'ChatKit nedir?',
+          label: 'What is ChatKit?',
           prompt: 'What is ChatKit?'
         }
       ],
@@ -318,7 +320,7 @@ export function ChatKitPanel({
     threadItemActions: {
       feedback: false,
     },
-// BURADA DURUN. Kodun geri kalanı (onClientTool, onResponseEnd, vb.) otomatik olarak kaldığı yerden devam edecektir.
+// Bu noktadan sonra dosyanızdaki onClientTool, onResponseEnd gibi fonksiyonlar devam etmelidir.
     onClientTool: async (invocation: {
       name: string;
       params: Record<string, unknown>;
